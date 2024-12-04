@@ -76,7 +76,7 @@ class WeatherDetailScreen extends StatelessWidget {
               ),
             ),
             Container(
-              height: 150, // Augmentation de la hauteur
+              height: 160, // Augmentation de la hauteur
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: weather.forecasts.length,
@@ -84,7 +84,7 @@ class WeatherDetailScreen extends StatelessWidget {
                   final forecast = weather.forecasts[index];
                   return Card(
                     child: Container(
-                      width: 120, // Augmentation de la largeur
+                      width: 120, // Largeur des cartes
                       padding: EdgeInsets.all(8),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -103,12 +103,16 @@ class WeatherDetailScreen extends StatelessWidget {
                             style: GoogleFonts.lato(
                                 fontSize: 18, fontWeight: FontWeight.bold),
                           ),
-                          Text(
-                            forecast.description,
-                            style: GoogleFonts.lato(fontSize: 12),
-                            textAlign: TextAlign.center,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
+                          Flexible(
+                            // Utiliser Flexible pour éviter le débordement
+                            child: Text(
+                              forecast.description,
+                              style: GoogleFonts.lato(fontSize: 12),
+                              textAlign: TextAlign.center,
+                              maxLines: 2, // Limiter à deux lignes
+                              overflow: TextOverflow
+                                  .ellipsis, // Éllipsis si trop long
+                            ),
                           ),
                         ],
                       ),
