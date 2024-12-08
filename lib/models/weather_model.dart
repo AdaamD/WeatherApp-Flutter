@@ -5,6 +5,8 @@ class WeatherModel {
   final double temperature;
   final double precipitation;
   final double humidity;
+  final String icon; // Ajout de l'icône
+  final String description; // Ajout de la description
 
   WeatherModel({
     required this.cityName,
@@ -13,6 +15,8 @@ class WeatherModel {
     required this.temperature,
     required this.precipitation,
     required this.humidity,
+    required this.icon,
+    required this.description,
   });
 
   factory WeatherModel.fromJson(Map<String, dynamic> json) {
@@ -28,6 +32,9 @@ class WeatherModel {
       temperature: json['list'][0]['main']['temp'].toDouble(),
       precipitation: json['list'][0]['rain']?['3h'] ?? 0.0,
       humidity: json['list'][0]['main']['humidity'].toDouble(),
+      icon: json['list'][0]['weather'][0]['icon'], // Ajout de l'icône
+      description: json['list'][0]['weather'][0]
+          ['description'], // Ajout de la description
     );
   }
 }
