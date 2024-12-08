@@ -13,13 +13,23 @@ class WeatherDetailScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xFFF5F5F5),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              CurrentWeather(weather: weather),
-              TodayWeather(forecasts: weather.forecasts),
-            ],
-          ),
+        child: Stack(
+          children: [
+            Column(
+              children: [
+                CurrentWeather(weather: weather),
+                Expanded(child: TodayWeather(forecasts: weather.forecasts)),
+              ],
+            ),
+            Positioned(
+              top: 10,
+              left: 10,
+              child: IconButton(
+                icon: Icon(Icons.arrow_back, color: Colors.white),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -36,13 +46,10 @@ class CurrentWeather extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height * 0.6,
       margin: EdgeInsets.all(2),
-      padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+      padding: EdgeInsets.fromLTRB(20, 50, 20, 30),
       decoration: BoxDecoration(
         color: Color(0xff00A1FF),
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(40),
-          bottomRight: Radius.circular(40),
-        ),
+        borderRadius: BorderRadius.circular(40), // Modifié ici
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
