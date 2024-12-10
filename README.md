@@ -1,16 +1,35 @@
-# flutter_application_weather
+# README - Application Météo Flutter
 
-A new Flutter project.
+## Présentation
 
-## Getting Started
+Ce projet est une application Flutter qui permet aux utilisateurs de consulter la météo d'une ville donnée. L'application utilise une API météo pour récupérer les informations actuelles et les prévisions sur plusieurs jours.
 
-This project is a starting point for a Flutter application.
+## Fonctionnalités
 
-A few resources to get you started if this is your first Flutter project:
+- Saisie du nom de la ville
+- Affichage des conditions météorologiques actuelles
+- Prévisions météorologiques pour plusieurs jours
+- Interface utilisateur intuitive et responsive
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Installation
+
+1. Clonez le dépôt
+2. Installez les dépendances
+  
+   * flutter pub get
+
+ 3. Lancez l'application
+    * flutter run
+
+
+## Dépendances principales
+
+    Flutter
+    Google Fonts
+    Intl
+    HTTP (pour les appels API)
+
+## Auteurs 
+* Adam DAIA
+* Mohammed DAFAOUI
